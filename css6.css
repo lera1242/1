@@ -1,0 +1,85 @@
+
+.сторона,
+.контейнер {
+  width: 10em;
+  height: 10em;
+  }
+
+.контейнер {
+  transform-style: preserve-3d;
+  animation: rotate 10s infinite linear;
+  }
+
+.сторона {
+  position: absolute;
+  width: 10em;
+  height: 10em;
+  border: .15em solid white;
+  border-radius: 3em;
+  transform-style: preserve-3d;
+  }
+  .сторона:before,
+  .сторона:after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    margin: auto;
+    transform: translateZ(2em) rotateZ(45deg);
+    }
+  .сторона:before {
+    width: 5em;
+    height: 5em;
+    box-shadow: 0 0 10px 5px rgba(255,255,255,.5) inset;
+    border: 2px dotted rgba(255,255,255,.5);
+    border-radius: 20px;
+    box-sizing: border-box;
+    transform: translateZ(3em) rotateZ(45deg);  
+  }
+  .сторона:after {
+    width: 10em;
+    height: 10em;
+    box-shadow: 0 0 20px 10px rgba(255,255,255,.5) inset;
+    border: 4px dotted rgba(255,255,255,.5);
+    box-sizing: border-box;
+    transform: translateZ(2em) rotateZ(45deg);
+  }
+
+.задняя {
+  transform: translateZ(-5em) rotateY(180deg);
+  background: url(https://avatars.mds.yandex.net/i?id=e09add021ed8a62ac2a4c0954234c034bd9dbe0a-10919913-images-thumbs&n=13) center;
+  }
+
+.левая {
+  transform: translateX(-5em) rotateY(-90deg);
+  background: url(https://i.pinimg.com/originals/61/cb/3f/61cb3f8b904c44605c00a81d54cf2e33.jpg) center;
+  }
+
+.правая {
+  transform: translateX(5em) rotateY(90deg);
+  background: url(https://avatars.mds.yandex.net/i?id=81cceeae17b55e627f9a0c8a915cd9218cb97119-9863167-images-thumbs&n=13) center;
+  }
+
+.верхняя {
+  transform: translateY(-5em) rotateX(90deg);
+  background: url(https://avatars.mds.yandex.net/i?id=35b780a193dce990f9e5f6cb6bf0997aed3b4569-9847423-images-thumbs&n=13) center;
+  }
+
+.нижняя {
+  transform: translateY(5em) rotateX(-90deg);
+  background: url(https://avatars.mds.yandex.net/i?id=b32dd417578ab1f71df9ffabb09ebe2750510c67-10385249-images-thumbs&n=13) center;
+  }
+
+.передняя {
+  transform: translateZ(5em);
+  background: url(https://avatars.mds.yandex.net/i?id=464471abc84841e3eae7a80815c5167a626fd764-10329490-images-thumbs&n=13) center;
+  }
+
+@keyframes rotate {
+  100% {
+    transform: rotateX(360deg) rotateY(-360deg) rotateZ(360deg);
+  }
+}
