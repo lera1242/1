@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Обработка строк</title>
+  <script>
+    function countWords() {
+      var sentence1 = document.getElementById("sentence1").value;
+      var sentence2 = document.getElementById("sentence2").value;
+
+      var words1 = sentence1.split(" ");
+      var words2 = sentence2.split(" ");
+      
+      var commonWords = [];
+      for (var i = 0; i < words1.length; i++) {
+        var word = words1[i];
+      
+        if (commonWords.indexOf(word) !== -1) {
+         continue; 
+        }
+        
+        if (words2.indexOf(word) !== -1) {
+          commonWords.push(word);
+        }
+      }
+      
+      var output = document.getElementById("output");
+      output.innerHTML = "Количество слов, которые есть в обоих предложениях: " + commonWords.length;
+    }
+  </script>
+</head>
+<body>
+  <h1>Обработка строк</h1>
+  <label for="sentence1">Предложение 1:</label>
+  <input type="text" id="sentence1">
+  <br><br>
+  <label for="sentence2">Предложение 2:</label>
+  <input type="text" id="sentence2"> 
+  <br><br>
+  <button onclick="countWords()">Посчитать</button>
+  <p id="output"></p>
+</body>
+</html>
