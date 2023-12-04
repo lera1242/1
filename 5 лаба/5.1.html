@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Угадай число</title>
+    <script type="text/javascript">
+        function guessNumber() {
+            var min = 1;
+            var max = 100;
+            var computerGuess;
+            var guesses = [];
+            while (true) {
+                computerGuess = Math.floor((min + max) / 2);
+                guesses.push(computerGuess);
+                var result = prompt("Задуманное число равно, больше или меньше " + computerGuess + "? (равно/больше/меньше)");
+                if (result === "равно") {
+                    alert("Компьютер угадал число!");
+                    break;
+                } else if (result === "больше") {
+                    min = computerGuess + 1;
+                } else if (result === "меньше") {
+                    max = computerGuess - 1;
+                }
+            }
+            document.getElementById("guesses").innerHTML = "Числа, которые сгенерировал компьютер: " + guesses.join(", ");
+        }
+    </script>
+</head>
+<body>
+    <h1>Угадай число</h1>
+    <button onclick="guessNumber()">Начать игру</button>
+    <p id="guesses"></p>
+</body>
+</html>

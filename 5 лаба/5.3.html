@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>5.3</title>
+</head>
+<body>
+  <h1>Удаление элементов массива</h1>
+  <script>
+    function isDecreasingArithmeticSequence(num) {
+      const numStr = Math.abs(Math.trunc(num)).toString();
+      for (let i = 0; i < numStr.length - 1; i++) {
+        if (parseInt(numStr[i]) <= parseInt(numStr[i + 1])) {
+          return false;
+        }
+      }
+      return true;
+    }
+
+    function removeElements(arr) {
+      for (let i = arr.length - 1; i >= 0; i--) {
+        if (isDecreasingArithmeticSequence(arr[i])) {
+          arr.splice(i, 1);
+        }
+      }
+      return arr;
+    }
+    
+    const numbers = [123, 456, 789, 321, 654, 987];
+    document.write('Исходный массив:'+ numbers );
+    document.write("<br>");
+    const result = removeElements(numbers);   
+    document.write('Массив после удаления элементов с убывающей арифметической последовательностью в их целой части равен: ' + result);  
+  </script> 
+</body>
+</html>
