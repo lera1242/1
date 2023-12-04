@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<HEAD><LINK rel = stylesheet type="text/css"
+href ="css5.css">
+<title>Кредитная заявка</title>
+<style>
+    html {
+background-image: url(https://avatars.mds.yandex.net/i?id=afd56c47a5f4e8b06ed7ee537975a64c43a5b3eb-10397524-images-thumbs&n=13);
+
+}
+ @media screen and (max-width: 600px) {
+
+        @media screen and (max-width: 600px) {
+            label {
+                display: none;
+            }
+            input[type="text"],
+            input[type="email"],
+            input[type="number"],
+            textarea {
+                margin-bottom: 10px;
+            }
+    
+            label {
+                display: none;
+            }
+            input[type="text"],
+            input[type="email"],
+            input[type="number"],
+        }
+    }
+</style>
+</head>
+<body>
+<form class="style">
+    <fieldset>
+        <legend> Контактная информация</legend>
+<div>
+<label for="name">ФИО:</label>
+<input type="text" id="name" name="name" pattern="[А-Яа-я]*?\s[А-Яа-я]*?\s[А-Яа-я]*" required>
+</div>
+<div>
+<label for="email">Email:</label>
+<input type="email" id="email" name="email" required>
+</div>
+<div>
+<label for="phone">Телефон:</label>
+<input type="tel" name="phone" pattern="[0-9]{11}" placeholder="XXXXXXXXXXX" required><br><br>
+</div>
+    </fieldset>
+    <fieldset>
+        <legend> Информация по кредиту</legend>
+<div>
+<label for="amount">Сумма кредита:</label>
+<input type="number" id="amount" name="amount" required>
+</div>
+<div>
+<label for="term">Срок кредита:</label>
+<input type="number" id="term" name="term" required>
+</div>
+<div>
+<label for="purpose">Цель кредита:</label>
+<select id="purpose" name="purpose" required>
+<option value="car">Покупка автомобиля</option>
+<option value="house">Покупка жилья</option>
+<option value="education">Образование</option>
+<option value="travel">Путешествия</option>
+<option value="other">Другое</option>
+</select>
+</div>
+<div>
+<label for="comment">Комментарий:</label>
+<textarea class="text" id="comment-input" name="comment-input" required></textarea>
+</div>
+<div>
+<input type="submit" value="Отправить">
+</div>
+    </fieldset>
+</form>
+<script>
+        function validateForm() {
+            var name = document.forms["myForm"]["name"].value;
+            var phone = document.forms["myForm"]["phone"].value;
+            var email=document.forms["myForm"]["email"].value;
+    
+            if (name == ""|| phone == "" || email == "") {
+                alert("Пожалуйста, заполните все обязательные поля!");
+                return false;
+            }
+           var namePattern=/^[a-zA-Zа-яА-Я\-]+$/;
+           if (!name.match(namePattern)) {
+                alert("Некорректное имя! имя должен состоять из букв.");
+                return false;
+            }
+            alert("Имя: " + name + "\nНомер телефона: " + phone);
+            // Очищаем поля формы
+            document.forms["myForm"]["name"].value = "";
+            document.forms["myForm"]["phone"].value = "";
+            return false;
+           
+            var phonePattern = /^\d{11}$/;
+            if (!phone.match(phonePattern)) {
+                alert("Некорректный номер телефона! Номер должен состоять из 11 цифр.");
+                return false;
+            }
+            alert("Фио: " + name + "\n Номер телефона: " + phone );
+            // Очищаем поля формы
+            document.forms["myForm"]["name"].value = "";
+            document.forms["myForm"]["phone"].value = "";
+            return false;  
+        }
+       
+    </script>
+</body>
+</html>
